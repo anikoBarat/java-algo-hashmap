@@ -22,6 +22,11 @@ class HashMapTest {
     }
 
     @Test
+    void testThrowExceptionWhenAlreadyExistingKeyAdded(){
+        assertThrows(IllegalArgumentException.class, ()->{hm.add("Alma", 10);});
+    }
+
+    @Test
     void testGetValueMethod(){
         assertEquals(10, (int) hm.getValue("Alma"));
         assertEquals(20, (int) hm.getValue("Körte"));
@@ -40,10 +45,5 @@ class HashMapTest {
         assertThrows(IllegalArgumentException.class, ()->{hm.getValue("Alma");});
         assertThrows(IllegalArgumentException.class, ()->{hm.getValue("Körte");});
         assertThrows(IllegalArgumentException.class, ()->{hm.getValue("Narancs");});
-    }
-
-    @Test
-    void testThrowExceptionWhenAlreadyExistingKeyAdded(){
-        assertThrows(IllegalArgumentException.class, ()->{hm.add("Alma", 10);});
     }
 }
