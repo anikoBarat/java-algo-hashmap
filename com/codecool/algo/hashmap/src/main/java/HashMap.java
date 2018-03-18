@@ -23,12 +23,11 @@ public class HashMap {
 
     public HashMap(){
         array = new LinkedList[size];
+        index = 0;
 
         for (int i = 0; i < array.length; i++){
             array[i] = new LinkedList<>();
         }
-
-        index = 0;
     }
 
     public void add(String key, Integer value){
@@ -54,7 +53,7 @@ public class HashMap {
 
     public void remove(String key) {
         List<KeyValue> list = array[hashFunction(key)];
-        int indexInList = -1;
+        int indexInList = 0;
         Boolean found = false;
 
             for (int i = 0; i < list.size(); i++) {
